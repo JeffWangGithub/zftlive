@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//src/com/zftlive/android/base=UTF-8
+encoding//src/com/zftlive/android/base/BaseActivity.java=UTF-8
+encoding//src/com/zftlive/android/base/BaseAdapter.java=UTF-8
+encoding//src/com/zftlive/android/base/BaseBroadcastReceiver.java=UTF-8
+encoding//src/com/zftlive/android/base/BaseContentProvider.java=UTF-8
+encoding//src/com/zftlive/android/base/BaseEntity.java=UTF-8
+encoding//src/com/zftlive/android/base/BaseException.java=UTF-8
+encoding//src/com/zftlive/android/base/BaseFragment.java=UTF-8
+encoding//src/com/zftlive/android/base/BaseFragmentV4.java=UTF-8
+encoding//src/com/zftlive/android/base/BaseService.java=UTF-8
+encoding/<project>=UTF-8
