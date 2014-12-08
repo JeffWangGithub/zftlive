@@ -3,15 +3,11 @@
 目前已集成以下优秀第三方开源组件：
 </h4>
 
-<br>
-
 <ul>
 	<li><a href="https://github.com/loopj/android-async-http" target="_blank">网络请求库android-async-http</a></li>
 </ul>
 
-<br>
 <hr>
-<br>
 
 2014.12.05更新日志：<br>
 1、初始版本建立<br>
