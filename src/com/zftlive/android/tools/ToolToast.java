@@ -1,7 +1,6 @@
 package com.zftlive.android.tools;
 
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -12,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.zftlive.android.MApplication;
 
 /**
@@ -109,7 +109,6 @@ public class ToolToast {
 	 * @param cornerRadius  四边圆角弧度
 	 * @return
 	 */
-	@SuppressLint("NewApi")
 	public static Toast buildToast(Context context,String msg,int duration,String bgColor,int textSp,int cornerRadius){
 		mHandler.removeCallbacks(r);
 		

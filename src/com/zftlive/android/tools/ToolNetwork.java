@@ -29,7 +29,7 @@ public class ToolNetwork {
 	public final static String NETWORK_CMNET = "CMNET";
 	public final static String NETWORK_CMWAP = "CMWAP";
 	public final static String NETWORK_WIFI = "WIFI";
-	public final static String TAG = "NetWorkUtils";
+	public final static String TAG = "ToolNetwork";
 	private static NetworkInfo networkInfo = null;
 	private Context mContext = null;
 

@@ -110,7 +110,7 @@ public class ToolPicture {
 	public static Bitmap makeQRImage(String content, int width, int height)
 			throws WriterException {
 		// 判断URL合法性
-		if (ToolString.isNoBlankAndNoNull(content))
+		if (!ToolString.isNoBlankAndNoNull(content))
 			return null;
 
 		Hashtable<EncodeHintType, String> hints = new Hashtable<EncodeHintType, String>();

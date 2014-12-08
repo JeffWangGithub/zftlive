@@ -120,7 +120,7 @@ public class ImageIndicatorView extends RelativeLayout {
 	 * @param context
 	 */
 	private void init(Context context) {
-		LayoutInflater.from(context).inflate(R.layout.view_imageindicator_layout, this);
+		LayoutInflater.from(context).inflate(R.layout.view_imageindicator, this);
 		this.viewPager = (ViewPager) findViewById(R.id.view_pager);
 		this.indicateLayout = (LinearLayout) findViewById(R.id.indicater_layout);
 		this.leftButton = (Button) findViewById(R.id.left_button);

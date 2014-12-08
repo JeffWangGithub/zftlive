@@ -31,7 +31,7 @@ public class ToolString {
 	 */
     public static boolean isNoBlankAndNoNull(String strParm)
     {
-      return (strParm == null) || (strParm.equals(""));
+      return ! ( (strParm == null) || (strParm.equals("")));
     }
     
     /**
