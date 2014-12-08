@@ -2,7 +2,7 @@ package com.zftlive.android.tools;
 
 import android.util.DisplayMetrics;
 
-import com.zftlive.android.model.SysEnv;
+import com.zftlive.android.config.SysEnv;
 
 /**
  * 单位换算工具类

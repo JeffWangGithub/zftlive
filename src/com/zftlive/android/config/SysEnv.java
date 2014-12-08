@@ -1,4 +1,4 @@
-package com.zftlive.android.model;
+package com.zftlive.android.config;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
