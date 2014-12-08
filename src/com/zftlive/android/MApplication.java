@@ -8,6 +8,10 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
+import com.android.http.RequestManager;
+import com.android.volley.toolbox.ImageLoader;
+import com.zftlive.android.view.imageindicator.NetworkImageCache;
+
 /**
  * 整个应用程序Applicaiton
  * 
@@ -27,8 +31,22 @@ public class MApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		instance = this;
+		
+		//初始化请求队列
+		RequestManager.getInstance().init(MApplication.this);
+		sImageLoader = new ImageLoader(RequestManager.getInstance()
+				.getRequestQueue(), imageCacheMap);
+		
 	}
 
+	private static ImageLoader sImageLoader = null;
+
+	private final NetworkImageCache imageCacheMap = new NetworkImageCache();
+
+	public static ImageLoader getImageLoader() {
+		return sImageLoader;
+	}
+	
 	private static Map<String, Object> data = new HashMap<String, Object>();
 
 	public static void assignData(String strKey, Object strValue) {
