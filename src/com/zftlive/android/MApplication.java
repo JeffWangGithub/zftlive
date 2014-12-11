@@ -16,14 +16,26 @@ import com.zftlive.android.view.imageindicator.NetworkImageCache;
  * 整个应用程序Applicaiton
  * 
  * @author 曾繁添
+ * @version 1.0
  * 
  */
 public class MApplication extends Application {
 
+	/**对外提供整个应用生命周期的Context**/
 	private static Context instance;
-
-	public static Stack<Activity> activitys = new Stack<Activity>();
-
+	/**整个应用全局可访问数据集合**/
+	private static Map<String, Object> gloableData = new HashMap<String, Object>();
+	/***volley提供的异步图片Loader**/
+	private static ImageLoader mImageLoader = null;
+	/***volley提供的异步图片缓存**/
+	private final NetworkImageCache imageCacheMap = new NetworkImageCache();
+	/***寄存整个应用Activity**/
+	private final  Stack<Activity> activitys = new Stack<Activity>();
+	
+	/**
+	 * 对外提供Application Context
+	 * @return
+	 */
 	public static Context gainContext() {
 		return instance;
 	}
@@ -34,46 +46,81 @@ public class MApplication extends Application {
 		
 		//初始化请求队列
 		RequestManager.getInstance().init(MApplication.this);
-		sImageLoader = new ImageLoader(RequestManager.getInstance()
-				.getRequestQueue(), imageCacheMap);
-		
+		mImageLoader = new ImageLoader(RequestManager.getInstance().getRequestQueue(), imageCacheMap);
 	}
 
-	private static ImageLoader sImageLoader = null;
-
-	private final NetworkImageCache imageCacheMap = new NetworkImageCache();
-
+	/**
+	 * 获取图片异步加载器
+	 * @return ImageLoader
+	 */ 
 	public static ImageLoader getImageLoader() {
-		return sImageLoader;
+		return mImageLoader;
 	}
-	
-	private static Map<String, Object> data = new HashMap<String, Object>();
 
+	/*******************************************************Application数据操作API（开始）********************************************************/
+	
+	/**
+	 * 往Application放置数据（最大不允许超过5个）
+	 * @param strKey 存放属性Key
+	 * @param strValue 数据对象
+	 */
 	public static void assignData(String strKey, Object strValue) {
-		if (data.size() > 5) {
+		if (gloableData.size() > 5) {
 			throw new RuntimeException("超过允许最大数");
 		}
-		data.put(strKey, strValue);
+		gloableData.put(strKey, strValue);
 	}
 
+	/**
+	 * 从Applcaiton中取数据
+	 * @param strKey 存放数据Key
+	 * @return 对应Key的数据对象
+	 */
 	public static Object gainData(String strKey) {
-		return data.get(strKey);
+		return gloableData.get(strKey);
+	}
+	
+	/*
+	 * 从Application中移除数据
+	 */
+	public static void removeData(String key){
+		if(gloableData.containsKey(key)) gloableData.remove(key);
 	}
 
-	public static void pushTask(Activity task) {
+	/*******************************************************Application数据操作API（结束）********************************************************/
+	
+	
+	/*******************************************Application中存放的Activity操作（压栈/出栈）API（开始）*****************************************/
+	
+	/**
+	 * 将Activity压入Application栈
+	 * @param task 将要压入栈的Activity对象
+	 */
+	public  void pushTask(Activity task) {
 		activitys.push(task);
 	}
 
-	public static void removeTask(Activity task) {
+	/**
+	 * 将传入的Activity对象从栈中移除
+	 * @param task
+	 */
+	public  void removeTask(Activity task) {
 		activitys.remove(task);
 	}
 
-	public static void removeTask(int taskIndex) {
+	/**
+	 * 根据指定位置从栈中移除Activity
+	 * @param taskIndex Activity栈索引
+	 */
+	public  void removeTask(int taskIndex) {
 		if (activitys.size() > taskIndex)
 			activitys.remove(taskIndex);
 	}
 
-	public static void removeToTop() {
+	/**
+	 * 将栈中Activity移除至栈顶
+	 */
+	public  void removeToTop() {
 		int end = activitys.size();
 		int start = 1;
 		for (int i = end - 1; i >= start; i--) {
@@ -81,9 +128,15 @@ public class MApplication extends Application {
 		}
 	}
 
-	public static void removeAll() {
+	/**
+	 * 移除全部（用于整个应用退出）
+	 */
+	public  void removeAll() {
+		//finish所有的Activity
 		for (Activity task : activitys) {
 			task.finish();
 		}
 	}
+	
+	/*******************************************Application中存放的Activity操作（压栈/出栈）API（结束）*****************************************/
 }
