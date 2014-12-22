@@ -9,6 +9,7 @@ import android.content.DialogInterface.OnClickListener;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,6 +44,16 @@ public class ToolAlert {
 	 * 显示ProgressDialog
 	 * @param context 上下文
 	 * @param message 消息
+	 */
+	public static void showLoading(Context context, String message,final ILoadingOnKeyListener listener){
+		
+		showLoading(context,message,true,listener);
+	}
+	
+	/**
+	 * 显示ProgressDialog
+	 * @param context 上下文
+	 * @param message 消息
 	 * @param cancelable 是否可以取消
 	 */
 	public static void showLoading(Context context, String message,boolean cancelable){
@@ -53,16 +64,6 @@ public class ToolAlert {
 		}
 		if(mProgressDialog.isShowing()){mProgressDialog.cancel();mProgressDialog.dismiss();}
 		mProgressDialog.show();
-	}
-	
-	/**
-	 * 显示ProgressDialog
-	 * @param context 上下文
-	 * @param message 消息
-	 */
-	public static void showLoading(Context context, String message,final ILoadingOnKeyListener listener){
-		
-		showLoading(context,message,true,listener);
 	}
 	
 	/**
@@ -325,13 +326,12 @@ public class ToolAlert {
     
     /**
      * 弹出Pop窗口
-     * @param context 依赖界面上下文
      * @param anchor 触发pop界面的控件
      * @param popView pop窗口界面
      * @param xoff 窗口X偏移量
      * @param yoff 窗口Y偏移量
      */
-    public static PopupWindow popwindow(Context context,View anchor,View popView,int xoff,int yoff){
+    public static PopupWindow popwindow(View anchor,View popView,int xoff,int yoff){
         PopupWindow pw = new PopupWindow(popView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,true);
         pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         pw.setOutsideTouchable(true);
@@ -363,19 +363,43 @@ public class ToolAlert {
     
     /**
      * 弹出Pop窗口（可设置是否点击其他地方关闭窗口）
-     * @param context 依赖界面上下文
      * @param anchor 触发pop界面的控件
      * @param popView pop窗口界面
      * @param xoff 窗口X偏移量
      * @param yoff 窗口Y偏移量
      * @param outSideTouchable 点击其他地方是否关闭窗口
      */
-    public static PopupWindow popwindow(Context context,View anchor,View popView,int xoff,int yoff,boolean outSideTouchable){
+    public static PopupWindow popwindow(View anchor,View popView,int xoff,int yoff,boolean outSideTouchable){
         PopupWindow pw = new PopupWindow(popView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,true);
         pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         pw.setOutsideTouchable(outSideTouchable);
         pw.showAsDropDown(anchor, xoff, yoff);
         pw.update();
+        
+        return pw;
+    }
+    
+    /**
+     * 指定坐标弹出Pop窗口
+     * @param pw pop窗口对象
+     * @param anchor 触发pop界面的控件
+     * @param popView pop窗口界面
+     * @param x 窗口X
+     * @param y 窗口Y
+     * @param outSideTouchable 点击其他地方是否关闭窗口
+     */
+    public static PopupWindow popwindowLoction(PopupWindow pw,View anchor,View popView,int x,int y){
+    	if(pw == null){
+    		pw = new PopupWindow(popView,LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,true);
+    		pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+    		pw.setOutsideTouchable(false);
+    	}
+    	
+    	if (pw.isShowing()) {
+    		pw.update(x,y,LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		} else {
+			pw.showAtLocation(anchor,Gravity.NO_GRAVITY, x,y);
+		}	
         
         return pw;
     }
