@@ -1,5 +1,6 @@
 package com.zftlive.android;
 
+import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -30,7 +31,7 @@ public class MApplication extends Application {
 	/***volley提供的异步图片缓存**/
 	private final NetworkImageCache imageCacheMap = new NetworkImageCache();
 	/***寄存整个应用Activity**/
-	private final  Stack<Activity> activitys = new Stack<Activity>();
+	private final Stack<WeakReference<Activity>> activitys = new Stack<WeakReference<Activity>>();
 	
 	/**
 	 * 对外提供Application Context
@@ -96,7 +97,7 @@ public class MApplication extends Application {
 	 * 将Activity压入Application栈
 	 * @param task 将要压入栈的Activity对象
 	 */
-	public  void pushTask(Activity task) {
+	public  void pushTask(WeakReference<Activity> task) {
 		activitys.push(task);
 	}
 
@@ -104,7 +105,7 @@ public class MApplication extends Application {
 	 * 将传入的Activity对象从栈中移除
 	 * @param task
 	 */
-	public  void removeTask(Activity task) {
+	public  void removeTask(WeakReference<Activity> task) {
 		activitys.remove(task);
 	}
 
@@ -124,7 +125,7 @@ public class MApplication extends Application {
 		int end = activitys.size();
 		int start = 1;
 		for (int i = end - 1; i >= start; i--) {
-			activitys.get(i).finish();
+			activitys.get(i).get().finish();
 		}
 	}
 
@@ -133,8 +134,8 @@ public class MApplication extends Application {
 	 */
 	public  void removeAll() {
 		//finish所有的Activity
-		for (Activity task : activitys) {
-			task.finish();
+		for (WeakReference<Activity> task : activitys) {
+			task.get().finish();
 		}
 	}
 	

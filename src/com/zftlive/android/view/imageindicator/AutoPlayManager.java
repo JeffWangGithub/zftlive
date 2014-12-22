@@ -3,8 +3,6 @@ package com.zftlive.android.view.imageindicator;
 import android.os.Handler;
 import android.os.Message;
 
-import com.zftlive.android.view.imageindicator.ImageIndicatorView;
-
 /**
  * Auto BrocastManager for ImageIndicatorView
  * 

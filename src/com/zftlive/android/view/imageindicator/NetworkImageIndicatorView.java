@@ -8,7 +8,6 @@ import android.widget.ImageView.ScaleType;
 
 import com.android.http.WebImageView;
 import com.zftlive.android.MApplication;
-import com.zftlive.android.R;
 import com.zftlive.android.tools.ToolResource;
 
 /**

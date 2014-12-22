@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.zftlive.android.R;
-
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -20,6 +18,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
+import com.zftlive.android.R;
 
 /**
  * 用户指引,宣传画控件(类似于Gallery效果)
