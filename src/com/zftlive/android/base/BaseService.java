@@ -10,12 +10,6 @@ import android.os.IBinder;
  * @version 1.0
  *
  */
-public class BaseService extends Service {
-
-	@Override
-	public IBinder onBind(Intent intent) {
-		
-		return null;
-	}
+public abstract class BaseService extends Service {
 
 }

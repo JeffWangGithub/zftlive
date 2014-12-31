@@ -67,6 +67,9 @@ public final class SysEnv {
 	/***设备IMSI号码**/
 	public static final String IMSI = ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE)).getSubscriberId();
 	
+	/***Activity之间数据传输数据对象Key**/
+	public static final String ACTIVITY_DTO_KEY = "ACTIVITY_DTO_KEY";
+	
 	/**获取系统显示材质***/
 	public static DisplayMetrics getDisplayMetrics(){
 		  WindowManager windowMgr = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);

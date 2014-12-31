@@ -8,6 +8,6 @@ import android.support.v4.app.Fragment;
  * @version 1.0
  *
  */
-public class BaseFragmentV4 extends Fragment {
+public abstract class BaseFragmentV4 extends Fragment {
 
 }

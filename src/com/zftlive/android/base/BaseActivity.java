@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.zftlive.android.MApplication;
+import com.zftlive.android.config.SysEnv;
 import com.zftlive.android.data.DTO;
 import com.zftlive.android.tools.ToolAlert;
 import com.zftlive.android.tools.ToolAlert.ILoadingOnKeyListener;
@@ -24,8 +25,6 @@ public abstract class BaseActivity extends Activity {
 	protected Intent mIntent = new Intent();
 	/***整个应用Applicaiton**/
 	protected MApplication mApplication = null;
-	/***数据传输对象Key**/
-	private final static String DTO_KEY = "dtoKey";
 	/**当前Activity的弱引用，防止内存泄露**/
 	private WeakReference<Activity> context = null;
 	/**日志输出标志**/
@@ -85,9 +84,17 @@ public abstract class BaseActivity extends Activity {
 	 * 跳转Activity
 	 * @param activity需要跳转至的Activity
 	 */
-	protected void forward(Class activity) {
+	protected void forward(Class<? extends Activity> activity) {
 		mIntent.setClass(this, activity);
 		startActivity(mIntent);
+	}
+	
+	/**
+	 * 设置传递参数
+	 * @param value 数据传输对象
+	 */
+	protected void assinAttriblte(DTO value) {
+		mIntent.putExtra(SysEnv.ACTIVITY_DTO_KEY, value);
 	}
 	
 	/**
@@ -95,8 +102,8 @@ public abstract class BaseActivity extends Activity {
 	 * @param key 参数key
 	 * @param value 数据传输对象
 	 */
-	protected void assinAttriblte(DTO value) {
-		mIntent.putExtra(DTO_KEY, value);
+	protected void assinAttriblte(String key,DTO value) {
+		mIntent.putExtra(key, value);
 	}
 	
 	/**
@@ -117,7 +124,7 @@ public abstract class BaseActivity extends Activity {
 	 * @return
 	 */
 	protected DTO gainAttribltes() {
-		DTO parms = (DTO)getIntent().getExtras().getSerializable(DTO_KEY);
+		DTO parms = (DTO)getIntent().getExtras().getSerializable(SysEnv.ACTIVITY_DTO_KEY);
 		return parms;
 	}
 	

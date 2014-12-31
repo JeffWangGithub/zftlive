@@ -10,6 +10,6 @@ import android.app.Fragment;
  *
  */
 @SuppressLint("NewApi")
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
 
 }
