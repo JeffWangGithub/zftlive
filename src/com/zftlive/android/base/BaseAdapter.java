@@ -4,15 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.zftlive.android.MApplication;
-import com.zftlive.android.config.SysEnv;
-import com.zftlive.android.data.DTO;
-
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.view.View;
-import android.view.ViewGroup;
 
 /**
  * Adapter基类
@@ -24,15 +17,15 @@ import android.view.ViewGroup;
 public abstract class BaseAdapter extends android.widget.BaseAdapter {
 
 	/** 数据存储集合 **/
-	protected List<Object> mDataList = new ArrayList<Object>();
+	private List<Object> mDataList = new ArrayList<Object>();
 	/** Context上下文 **/
-	protected Context mContext;
+	private Activity mContext;
 
 	public BaseAdapter() {
 		
 	}
 	
-	public BaseAdapter(Context mContext) {
+	public BaseAdapter(Activity mContext) {
 		this.mContext = mContext;
 	}
 	
@@ -58,7 +51,7 @@ public abstract class BaseAdapter extends android.widget.BaseAdapter {
 	 * 添加数据
 	 * @param item 数据项
 	 */
-	protected boolean addItem(Object object){
+	public boolean addItem(Object object){
 		return mDataList.add(object);
 	}
 	
@@ -67,7 +60,7 @@ public abstract class BaseAdapter extends android.widget.BaseAdapter {
 	 * @param location 索引
 	 * @param object 数据
 	 */
-	protected void addItem(int location,Object object){
+	public void addItem(int location,Object object){
 	     mDataList.add(location, object);
 	}
 	
@@ -75,7 +68,7 @@ public abstract class BaseAdapter extends android.widget.BaseAdapter {
 	 * 集合方式添加数据
 	 * @param collection 集合
 	 */
-	protected boolean addItem(Collection<? extends Object> collection){
+	public boolean addItem(Collection<? extends Object> collection){
 		return mDataList.addAll(collection);
 	}
 	
@@ -84,7 +77,7 @@ public abstract class BaseAdapter extends android.widget.BaseAdapter {
 	 * @param location 索引
 	 * @param collection 数据集合
 	 */
-	protected boolean addItem(int location,Collection<? extends Object> collection){
+	public boolean addItem(int location,Collection<? extends Object> collection){
 		return mDataList.addAll(location,collection);
 	}
 	
@@ -93,7 +86,7 @@ public abstract class BaseAdapter extends android.widget.BaseAdapter {
 	 * @param object 移除对象
 	 * @return 是否移除成功
 	 */
-	protected boolean removeItem(Object object){
+	public boolean removeItem(Object object){
 		return mDataList.remove(object);
 	}
 	
@@ -102,7 +95,7 @@ public abstract class BaseAdapter extends android.widget.BaseAdapter {
 	 * @param location 删除对象索引位置
 	 * @return 被删除的对象
 	 */
-	protected Object removeItem(int location){
+	public Object removeItem(int location){
 	    return mDataList.remove(location);
 	}
 	
@@ -111,22 +104,22 @@ public abstract class BaseAdapter extends android.widget.BaseAdapter {
 	 * @param collection 待移除的集合
 	 * @return 是否移除成功
 	 */
-	protected boolean removeAll(Collection<? extends Object> collection){
+	public boolean removeAll(Collection<? extends Object> collection){
 		return mDataList.removeAll(collection);
 	}
 	
 	/**
 	 * 清空数据
 	 */
-	protected void clear() {
+	public void clear() {
 		mDataList.clear();
 	}
 	
 	/**
-	 * 获取BaseActivity方法
-	 * @return BaseActivity
+	 * 获取Activity方法
+	 * @return Activity的子类
 	 */
-	protected BaseActivity getActivity(){
+	public Activity getActivity(){
 		if(null == mContext ) return null;
 		
 		if(mContext instanceof BaseActivity)

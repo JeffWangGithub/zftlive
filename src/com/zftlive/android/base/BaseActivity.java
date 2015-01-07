@@ -3,15 +3,12 @@ package com.zftlive.android.base;
 import java.lang.ref.WeakReference;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import com.zftlive.android.MApplication;
-import com.zftlive.android.config.SysEnv;
-import com.zftlive.android.data.DTO;
-import com.zftlive.android.tools.ToolAlert;
-import com.zftlive.android.tools.ToolAlert.ILoadingOnKeyListener;
 
 /**
  * android 系统中的四大组件之一Activity基类
@@ -19,16 +16,19 @@ import com.zftlive.android.tools.ToolAlert.ILoadingOnKeyListener;
  * @version 1.0
  *
  */
-public abstract class BaseActivity extends Activity {
-	
-	/**激活Activity组件意图**/
-	protected Intent mIntent = new Intent();
+public abstract class BaseActivity extends Activity implements IBaseActivity{
+
 	/***整个应用Applicaiton**/
-	protected MApplication mApplication = null;
+	private MApplication mApplication = null;
 	/**当前Activity的弱引用，防止内存泄露**/
 	private WeakReference<Activity> context = null;
+	/**当前Activity渲染的视图View**/
+	private View mContextView = null;
+	/**共通操作**/
+	private Operation mBaseOperation = null;
 	/**日志输出标志**/
 	private final String TAG = BaseActivity.class.getSimpleName();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,6 +41,18 @@ public abstract class BaseActivity extends Activity {
 		context = new WeakReference<Activity>(this);
 		mApplication.pushTask(context);
 		
+		//实例化共通操作
+		mBaseOperation = new Operation(this);
+		
+		//设置渲染视图View
+		mContextView = LayoutInflater.from(this).inflate(bindLayout(), null);
+		setContentView(mContextView);
+		
+		//初始化控件
+		initView(mContextView);
+		
+		//业务操作
+		doBusiness(this);
 	}
 	
 	@Override
@@ -81,92 +93,9 @@ public abstract class BaseActivity extends Activity {
 	}
 	
 	/**
-	 * 跳转Activity
-	 * @param activity需要跳转至的Activity
+	 * 获取共通操作机能
 	 */
-	protected void forward(Class<? extends Activity> activity) {
-		mIntent.setClass(this, activity);
-		startActivity(mIntent);
-	}
-	
-	/**
-	 * 设置传递参数
-	 * @param value 数据传输对象
-	 */
-	protected void assinAttriblte(DTO value) {
-		mIntent.putExtra(SysEnv.ACTIVITY_DTO_KEY, value);
-	}
-	
-	/**
-	 * 设置传递参数
-	 * @param key 参数key
-	 * @param value 数据传输对象
-	 */
-	protected void assinAttriblte(String key,DTO value) {
-		mIntent.putExtra(key, value);
-	}
-	
-	/**
-	 * 获取跳转时设置的参数
-	 * @param key
-	 * @return
-	 */
-	protected Object gainAttriblte(String key) {
-		DTO parms = gainAttribltes();
-		if(null != parms){
-			return parms.get(key);
-		}
-		return null;
-	}
-	
-	/**
-	 * 获取跳转参数集合
-	 * @return
-	 */
-	protected DTO gainAttribltes() {
-		DTO parms = (DTO)getIntent().getExtras().getSerializable(SysEnv.ACTIVITY_DTO_KEY);
-		return parms;
-	}
-	
-	/**
-	 * 设置全局Application传递参数
-	 * @param key 参数key
-	 * @param value 数据传输对象
-	 */
-	protected void assinGloableAttriblte(String strKey,Object value) {
-		mApplication.assignData(strKey, value);
-	}
-	
-	/**
-	 * 获取跳转时设置的参数
-	 * @param key
-	 * @return
-	 */
-	protected Object gainGloableAttriblte(String strKey) {
-		return mApplication.gainData(strKey);
-	}
-	
-	/**
-	 * 弹出等待对话框
-	 * @param message 提示信息
-	 */
-	protected void showLoading(String message){
-		ToolAlert.showLoading(this, message);
-	}
-	
-	/**
-	 * 弹出等待对话框
-	 * @param message 提示信息
-	 * @param listener 按键监听器
-	 */
-	protected void showLoading(String message,ILoadingOnKeyListener listener){
-		ToolAlert.showLoading(this, message, listener);
-	}
-	
-	/**
-	 * 关闭等待对话框
-	 */
-	protected void closeLoading(){
-		ToolAlert.closeLoading();
+	public Operation getOperation(){
+		return this.mBaseOperation;
 	}
 }

@@ -1,13 +1,12 @@
 package com.zftlive.android;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.Context;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 
+import com.zftlive.android.base.BaseActivity;
 import com.zftlive.android.sample.MainActivity;
 
 /**
@@ -16,37 +15,43 @@ import com.zftlive.android.sample.MainActivity;
  * @version 1.0
  *
  */
-public class Launcher extends Activity {
+public class Launcher extends BaseActivity {
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public int bindLayout() {
+		return R.layout.activity_launcher;
+	}
 
-		View view = getLayoutInflater().inflate(R.layout.activity_launcher, null);
+	@Override
+	public void initView(View view) {
+		
+		//添加动画效果
 		AlphaAnimation animation = new AlphaAnimation(0.3f, 1.0f);
 		animation.setDuration(1000);
 		animation.setAnimationListener(new AnimationListener() {
 
 			@Override
 			public void onAnimationStart(Animation animation) {
+				
 			}
 
 			@Override
 			public void onAnimationRepeat(Animation animation) {
+				
 			}
 
 			@Override
 			public void onAnimationEnd(Animation animation) {
-				skip();
+				//跳转界面
+				getOperation().forward(MainActivity.class);
+				finish();
 			}
 		});
 		view.setAnimation(animation);
-		setContentView(view);
 	}
 
-	private void skip() {
-		Intent intent = new Intent(this, MainActivity.class);
-		startActivity(intent);
-		finish();
+	@Override
+	public void doBusiness(Context mContext) {
+		
 	}
 }
