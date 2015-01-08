@@ -23,7 +23,7 @@ public interface IBaseFragment {
 	public void initView(final View view);
 	
 	/**
-	 * 业务处理操作（onCreate方法中调用）
+	 * 业务处理操作（onCreateView方法中调用）
 	 * @param mContext  当前Activity对象
 	 */
 	public void doBusiness(Context mContext);
