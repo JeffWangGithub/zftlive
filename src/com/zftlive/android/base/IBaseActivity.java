@@ -28,4 +28,14 @@ public interface IBaseActivity {
 	 */
 	public void doBusiness(Context mContext);
 	
+	/**
+	 * 暂停恢复刷新相关操作（onResume方法中调用）
+	 */
+	public void resume();
+	
+	/**
+	 * 销毁、释放资源相关操作（onDestroy方法中调用）
+	 */
+	public void destroy();
+	
 }

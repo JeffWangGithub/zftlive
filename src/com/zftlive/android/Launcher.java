@@ -54,4 +54,14 @@ public class Launcher extends BaseActivity {
 	public void doBusiness(Context mContext) {
 		
 	}
+
+	@Override
+	public void resume() {
+		
+	}
+
+	@Override
+	public void destroy() {
+		
+	}
 }

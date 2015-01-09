@@ -71,6 +71,7 @@ public abstract class BaseActivity extends Activity implements IBaseActivity{
 	protected void onResume() {
 		super.onResume();
 		Log.d(TAG, "BaseActivity-->onResume()");
+		resume();
 	}
 
 	@Override
@@ -89,6 +90,8 @@ public abstract class BaseActivity extends Activity implements IBaseActivity{
 	protected void onDestroy() {
 		super.onDestroy();
 		Log.d(TAG, "BaseActivity-->onDestroy()");
+		
+		destroy();
 		mApplication.removeTask(context);
 	}
 	

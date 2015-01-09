@@ -28,4 +28,14 @@ public class GuideActivity extends BaseActivity {
 		
 	}
 
+	@Override
+	public void resume() {
+		
+	}
+
+	@Override
+	public void destroy() {
+		
+	}
+
 }
