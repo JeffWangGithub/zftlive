@@ -125,7 +125,9 @@ public class MApplication extends Application {
 		int end = activitys.size();
 		int start = 1;
 		for (int i = end - 1; i >= start; i--) {
-			activitys.get(i).get().finish();
+			if (!activitys.get(i).get().isFinishing()) {     
+				activitys.get(i).get().finish(); 
+		    }
 		}
 	}
 
@@ -135,7 +137,9 @@ public class MApplication extends Application {
 	public  void removeAll() {
 		//finish所有的Activity
 		for (WeakReference<Activity> task : activitys) {
-			task.get().finish();
+			if (!task.get().isFinishing()) {     
+				task.get().finish(); 
+		    }  
 		}
 	}
 	
