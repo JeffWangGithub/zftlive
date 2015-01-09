@@ -51,7 +51,7 @@ public class ToolAlert {
 			mProgressDialog = new ProgressDialog(context,message);
 			mProgressDialog.setCancelable(cancelable);
 		}
-		if(mProgressDialog.isShowing()){mProgressDialog.cancel();}
+		if(mProgressDialog.isShowing()){mProgressDialog.cancel();mProgressDialog.dismiss();}
 		mProgressDialog.show();
 	}
 	
@@ -76,6 +76,8 @@ public class ToolAlert {
 			mProgressDialog = new ProgressDialog(context,message);
 			mProgressDialog.setCancelable(cancelable);
 		}
+		
+		if(mProgressDialog.isShowing()){mProgressDialog.cancel();mProgressDialog.dismiss();}
 		
 		if(null != listener)
 		{
