@@ -127,6 +127,13 @@
             android:windowSoftInputMode="adjustPan" />
         <!-- android:windowSoftInputMode="adjustPan"   键盘就会覆盖屏幕 -->
         <!-- android:windowSoftInputMode="stateVisible|adjustResize"   屏幕整体上移 -->
+        
+        <!--底部泡泡菜单 -->
+        <activity
+            android:name=".sample.popupwindow.PopDialogMenuActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
                 
     </application>
 

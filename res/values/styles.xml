@@ -17,4 +17,10 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+     <!-- popupwindow 动画 -->
+    <style name="pop_animation">
+        <item name="android:windowEnterAnimation">@anim/pop_menu_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/pop_menu_out_anim</item>
+    </style>
+    
 </resources>
