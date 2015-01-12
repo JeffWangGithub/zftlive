@@ -7,7 +7,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 
 import com.zftlive.android.base.BaseActivity;
-import com.zftlive.android.sample.MainActivity;
+import com.zftlive.android.sample.popupwindow.PopDialogMenuActivity;
 
 /**
  * 程序启动界面
@@ -43,7 +43,7 @@ public class Launcher extends BaseActivity {
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				//跳转界面
-				getOperation().forward(MainActivity.class);
+				getOperation().forward(PopDialogMenuActivity.class);
 				finish();
 			}
 		});
