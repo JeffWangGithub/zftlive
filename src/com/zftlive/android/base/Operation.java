@@ -13,7 +13,7 @@ import com.zftlive.android.tools.ToolAlert;
 import com.zftlive.android.tools.ToolAlert.ILoadingOnKeyListener;
 
 /**
- * 基本的操作共通抽泣
+ * 基本的操作共通抽取
  * @author 曾繁添
  * @version 1.0
  *

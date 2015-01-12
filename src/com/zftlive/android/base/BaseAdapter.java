@@ -20,13 +20,20 @@ public abstract class BaseAdapter extends android.widget.BaseAdapter {
 	private List<Object> mDataList = new ArrayList<Object>();
 	/** Context上下文 **/
 	private Activity mContext;
+	/** 每一页显示条数 **/
+	private int mPerPageSize = 10;
 
 	public BaseAdapter() {
-		
+		this(null);
 	}
 	
 	public BaseAdapter(Activity mContext) {
+		this(mContext,10);
+	}
+	
+	public BaseAdapter(Activity mContext,int mPerPageSize){
 		this.mContext = mContext;
+		this.mPerPageSize = mPerPageSize;
 	}
 	
 	@Override
@@ -45,6 +52,14 @@ public abstract class BaseAdapter extends android.widget.BaseAdapter {
 	@Override
 	public long getItemId(int position) {
 		return position;
+	}
+	
+	/**
+	 * 获取当前页
+	 * @return 当前页
+	 */
+	public int getPageNo(){
+		return (getCount() / mPerPageSize) + 1;
 	}
 	
 	/**
