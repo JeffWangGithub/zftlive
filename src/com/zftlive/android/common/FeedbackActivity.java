@@ -3,6 +3,7 @@ package com.zftlive.android.common;
 import android.content.Context;
 import android.view.View;
 
+import com.zftlive.android.R;
 import com.zftlive.android.base.BaseActivity;
 
 /**
@@ -14,7 +15,7 @@ public class FeedbackActivity extends BaseActivity {
 
 	@Override
 	public int bindLayout() {
-		return 0;
+		return R.layout.activity_feedback;
 	}
 
 	@Override
