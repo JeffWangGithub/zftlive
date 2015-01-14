@@ -76,6 +76,31 @@ public class MainActivity extends BaseActivity {
 		
 	}
 
+	protected List<Map<String, Object>> getListData(){
+		List<Map<String, Object>> mListViewData = new ArrayList<Map<String, Object>>();
+        Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+        mainIntent.addCategory(Intent.CATEGORY_SAMPLE_CODE);
+        List<ResolveInfo> mActivityList = getPackageManager().queryIntentActivities(mainIntent, 0);
+        for (int i = 0; i < mActivityList.size(); i++) 
+        {
+            ResolveInfo info = mActivityList.get(i);
+            String label = info.loadLabel(getPackageManager()) != null? info.loadLabel(getPackageManager()).toString() : info.activityInfo.name;
+        
+            Map<String, Object> temp = new HashMap<String, Object>();
+            temp.put("title", label);
+            temp.put("intent", buildIntent(info.activityInfo.applicationInfo.packageName,info.activityInfo.name));
+            mListViewData.add(temp);
+        }
+        
+        return mListViewData;
+	}
+	
+    protected Intent buildIntent(String packageName, String componentName) {
+        Intent result = new Intent();
+        result.setClassName(packageName, componentName);
+        return result;
+    }
+	
 	/**
 	 * 列表适配器
 	 */
@@ -108,33 +133,5 @@ public class MainActivity extends BaseActivity {
 			TextView label;
 		}
 	}
-	
-	protected List<Map<String, Object>> getListData(){
-		List<Map<String, Object>> mListViewData = new ArrayList<Map<String, Object>>();
-        Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-        mainIntent.addCategory(Intent.CATEGORY_SAMPLE_CODE);
-        List<ResolveInfo> mActivityList = getPackageManager().queryIntentActivities(mainIntent, 0);
-        for (int i = 0; i < mActivityList.size(); i++) 
-        {
-            ResolveInfo info = mActivityList.get(i);
-            String label = info.loadLabel(getPackageManager()) != null? info.loadLabel(getPackageManager()).toString() : info.activityInfo.name;
-            addItem(mListViewData, label, buildIntent(info.activityInfo.applicationInfo.packageName,info.activityInfo.name));
-        }
-        
-        return mListViewData;
-	}
-	
-    protected Intent buildIntent(String packageName, String componentName) {
-        Intent result = new Intent();
-        result.setClassName(packageName, componentName);
-        return result;
-    }
-
-    protected void addItem(List<Map<String, Object>> data, String name, Intent intent) {
-        Map<String, Object> temp = new HashMap<String, Object>();
-        temp.put("title", name);
-        temp.put("intent", intent);
-        data.add(temp);
-    }
 
 }
