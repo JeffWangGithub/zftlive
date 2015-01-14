@@ -14,9 +14,7 @@ import com.zftlive.android.tools.ToolResource;
  */
 public class ProgressDialog extends Dialog {
 	
-	/****
-	 * 消息TextView
-	 */
+	/**消息TextView*/
 	private TextView tvMsg ; 
 	
 	public ProgressDialog(Context context, String strMessage) {
@@ -25,7 +23,6 @@ public class ProgressDialog extends Dialog {
 
 	public ProgressDialog(Context context, int theme, String strMessage) {
 		super(context, theme);
-		
 		this.setContentView(ToolResource.getLayoutId("view_progress_dialog"));
 		this.getWindow().getAttributes().gravity = Gravity.CENTER;
 	    tvMsg = (TextView) this.findViewById(ToolResource.getIdId("tv_msg"));
@@ -41,12 +38,4 @@ public class ProgressDialog extends Dialog {
 			tvMsg.setText(strMessage);
 		}
 	}
-	
-//	@Override
-//	public void onWindowFocusChanged(boolean hasFocus) {
-//
-//		if (!hasFocus) {
-//			dismiss();
-//		}
-//	}
 }
