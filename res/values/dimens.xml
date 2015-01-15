@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 曲线粗细大小 -->
+    <dimen name="line_size">4px</dimen>
+    <!-- 曲线关键点大小 -->
+    <dimen name="line_point_size">6px</dimen>
+    <!-- 曲线坐标轴刻度字体大小 -->
+    <dimen name="axis_label_text">20sp</dimen>
+</resources>
