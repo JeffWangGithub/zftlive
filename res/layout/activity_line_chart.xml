@@ -58,11 +58,23 @@
     <!-- 图表曲线 -->
     <LinearLayout
         android:id="@+id/ll_chat"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1.3"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:gravity="center"
+        android:orientation="vertical" >
+    </LinearLayout>
+    
+        <LinearLayout
+        android:id="@+id/ll_blank"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="@color/blanchedalmond"
         android:orientation="vertical" >
     </LinearLayout>
 
