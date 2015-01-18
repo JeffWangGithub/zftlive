@@ -36,6 +36,7 @@ import com.zftlive.android.base.BaseAdapter;
 public class MainActivity extends BaseActivity {
 
 	private ListView mListView;
+	public final static String SAMPLE_CODE = "com.zftlive.android.SAMPLE_CODE";
 	
 	@Override
 	public int bindLayout() {
@@ -79,7 +80,7 @@ public class MainActivity extends BaseActivity {
 	protected List<Map<String, Object>> getListData(){
 		List<Map<String, Object>> mListViewData = new ArrayList<Map<String, Object>>();
         Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-        mainIntent.addCategory(Intent.CATEGORY_SAMPLE_CODE);
+        mainIntent.addCategory(SAMPLE_CODE);
         List<ResolveInfo> mActivityList = getPackageManager().queryIntentActivities(mainIntent, 0);
         for (int i = 0; i < mActivityList.size(); i++) 
         {

@@ -111,7 +111,7 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
             </intent-filter>
         </activity>
 
@@ -124,7 +124,7 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
             </intent-filter>
         </activity>
 
@@ -157,7 +157,7 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
             </intent-filter>
         </activity>
         
@@ -170,7 +170,20 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        
+        <!-- 异步加载列表图片样例 -->
+        <activity
+            android:name=".sample.image.ImageListviewActivity"
+            android:label="ImageListviewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
             </intent-filter>
         </activity>
     </application>

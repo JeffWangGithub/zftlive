@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    tools:context=".Launcher" >
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/default_icon"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_icon"
+        android:layout_centerVertical="true"
+        android:gravity="left|center_vertical"
+        android:padding="3dp"
+        android:singleLine="false"
+        android:ellipsize="end"
+        android:text="大前端DUX主题正式发布，含会员中心、注册登录、网址导航和微分类，且风格多选"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+</RelativeLayout>
