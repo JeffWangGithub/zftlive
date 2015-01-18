@@ -48,7 +48,6 @@ public class ImageListviewActivity extends BaseActivity {
 			"http://www.daqianduan.com/wp-content/uploads/2013/06/bingdian.png",
 			"http://www.daqianduan.com/wp-content/uploads/2013/04/ctrip-wireless.png"
 	};
-	
 	private String titles[] = new String[]{
 			"看见网络科技（上海）有限公司招前端开发工程师",
 			"首都信息发展股份有限公司招Web前端工程师(北京-海淀)",
@@ -73,7 +72,6 @@ public class ImageListviewActivity extends BaseActivity {
 	};
 	private DisplayImageOptions mDisplayImageOptions; 
 	private com.nostra13.universalimageloader.core.ImageLoader universalimageloader;
-	
 	
 	@Override
 	public int bindLayout() {
@@ -132,27 +130,21 @@ public class ImageListviewActivity extends BaseActivity {
 				mViewHolder = new ViewHolder();
 				mViewHolder.iv_icon = (ImageView)convertView.findViewById(R.id.iv_icon);
 				mViewHolder.tv_title = (TextView)convertView.findViewById(R.id.tv_title);
-				
 				convertView.setTag(mViewHolder);
-				
 			}else{
 				mViewHolder = (ViewHolder)convertView.getTag();
 			}
-			
-			Map<String,Object> rowData =  (Map)getItem(position);
 			//设置数据
-			
+			Map<String,Object> rowData =  (Map)getItem(position);
 			//异步加载图片防止错位方法一：com.android.volley.toolbox.ImageLoader
 //			ImageLoader mImageLoader = MApplication.getImageLoader();
 //			ImageListener mImageListener = mImageLoader.getImageListener(mViewHolder.iv_icon, R.drawable.default_icon, R.drawable.ic_launcher);
 //			mImageLoader.get((String)rowData.get("imageUrl"), mImageListener);
 			
-			//异步加载图片防止错位方法二：com.android.volley.toolbox.ImageLoader
+			//异步加载图片防止错位方法二：com.nostra13.universalimageloader.core.ImageLoader
 			universalimageloader.displayImage((String)rowData.get("imageUrl"), mViewHolder.iv_icon, mDisplayImageOptions);
 			
-			
 			mViewHolder.tv_title.setText((String)rowData.get("title"));
-			
 			return convertView;
 		}
 		
@@ -161,5 +153,4 @@ public class ImageListviewActivity extends BaseActivity {
 			TextView tv_title;
 		}
 	}
-
 }
