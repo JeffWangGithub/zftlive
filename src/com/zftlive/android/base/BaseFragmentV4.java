@@ -1,7 +1,6 @@
 package com.zftlive.android.base;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -22,7 +21,7 @@ public abstract class BaseFragmentV4 extends Fragment implements IBaseFragment{
 	/**共通操作**/
 	private Operation mBaseOperation = null;
 	/**日志输出标志**/
-	private final String TAG = BaseFragmentV4.class.getSimpleName();
+	protected final String TAG = this.getClass().getSimpleName();
 	
 	@Override
 	public void onAttach(Activity activity) {
@@ -107,6 +106,14 @@ public abstract class BaseFragmentV4 extends Fragment implements IBaseFragment{
 	public void onDetach() {
 		Log.d(TAG, "BaseFragmentV4-->onDetach()");
 		super.onDetach();
+	}
+	
+	/**
+	 * 获取当前Fragment依附在的Activity
+	 * @return
+	 */
+	protected Activity getContext(){
+		return getActivity();
 	}
 	
 	/**

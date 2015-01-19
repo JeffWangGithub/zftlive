@@ -3,7 +3,6 @@ package com.zftlive.android.base;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,7 +23,7 @@ public abstract class BaseFragment extends Fragment implements IBaseFragment {
 	/**共通操作**/
 	private Operation mBaseOperation = null;
 	/**日志输出标志**/
-	private final String TAG = BaseFragment.class.getSimpleName();
+	protected final String TAG = this.getClass().getSimpleName();
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -110,6 +109,14 @@ public abstract class BaseFragment extends Fragment implements IBaseFragment {
 	public void onDetach() {
 		Log.d(TAG, "BaseFragment-->onDetach()");
 		super.onDetach();
+	}
+	
+	/**
+	 * 获取当前Fragment依附在的Activity
+	 * @return
+	 */
+	protected Activity getContext(){
+		return getActivity();
 	}
 	
 	/**

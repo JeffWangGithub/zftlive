@@ -27,7 +27,7 @@ public abstract class BaseActivity extends Activity implements IBaseActivity{
 	/**共通操作**/
 	private Operation mBaseOperation = null;
 	/**日志输出标志**/
-	private final String TAG = BaseActivity.class.getSimpleName();
+	protected final String TAG = this.getClass().getSimpleName();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +93,17 @@ public abstract class BaseActivity extends Activity implements IBaseActivity{
 		
 		destroy();
 		mApplication.removeTask(context);
+	}
+	
+	/**
+	 * 获取当前Activity
+	 * @return
+	 */
+	protected Activity getContext(){
+		if(null != context)
+			return context.get();
+		else
+			return null;
 	}
 	
 	/**
