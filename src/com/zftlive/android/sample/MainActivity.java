@@ -25,7 +25,7 @@ import com.zftlive.android.base.BaseAdapter;
  * <per>
  *	<intent-filter>
  *		<action android:name="android.intent.action.MAIN" />
- *		<category android:name="android.intent.category.SAMPLE_CODE" />
+ *		<category android:name="com.zftlive.android.SAMPLE_CODE" />
  *	</intent-filter>
  *</per>
  * 的Activity
