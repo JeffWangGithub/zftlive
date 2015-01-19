@@ -100,7 +100,7 @@ public class ImageListviewActivity extends BaseActivity {
 		for (int i = 0; i < 20; i++) {
 			Map<String,Object> rowData = new LinkedHashMap<String,Object>();
 			rowData.put("imageUrl", imageURLs[i]);
-			rowData.put("title", i+1 + " "+titles[i]);
+			rowData.put("title", i+1+" "+titles[i]);
 			mMyListViewAdapter.addItem(rowData);
 		}
 		mListView.setAdapter(mMyListViewAdapter);
