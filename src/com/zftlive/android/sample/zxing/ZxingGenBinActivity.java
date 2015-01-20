@@ -61,6 +61,8 @@ public class ZxingGenBinActivity extends BaseActivity {
 						return ;
 					}
 					
+					getOperation().showLoading("正在生成...");
+					
 					//回收bitmap
 					if(null != qrImage && !qrImage.isRecycled()){
 						qrImage.recycle();
@@ -73,6 +75,9 @@ public class ZxingGenBinActivity extends BaseActivity {
 					//生成图片
 					String filePath = ToolFile.gainSDCardPath() + "/MyLive/QRImage/"+UUID.randomUUID().toString()+".jpg";
 					ToolFile.saveAsJPEG(qrImage, filePath);
+					
+					getOperation().closeLoading();
+					
 					ToolAlert.showShort("二维码已经保存在："+filePath);
 					
 				} catch (Exception e) {
@@ -86,6 +91,9 @@ public class ZxingGenBinActivity extends BaseActivity {
 			public void onClick(View v) {
 				
 				try {
+					
+					getOperation().showLoading("正在生成...");
+					
 					//回收bitmap
 					if(null != validateCodeImage && !validateCodeImage.isRecycled()){
 						validateCodeImage.recycle();
@@ -97,6 +105,8 @@ public class ZxingGenBinActivity extends BaseActivity {
 				    validate_image.setImageBitmap(validateCodeImage);
 					
 					ToolAlert.showShort("验证码值："+ToolPicture.gainValidateCodeValue());
+					
+					getOperation().closeLoading();
 					
 				} catch (Exception e) {
 					e.printStackTrace();

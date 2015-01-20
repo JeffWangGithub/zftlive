@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
+import com.zftlive.android.R;
 import com.zftlive.android.base.BaseActivity;
 import com.zftlive.android.zxing.CaptureActivity;
 
@@ -17,7 +18,7 @@ public class ZxingSacnnerActivity extends BaseActivity {
 
 	@Override
 	public int bindLayout() {
-		return 0;
+		return R.layout.activity_zxing_scanner;
 	}
 
 	@Override
@@ -29,6 +30,7 @@ public class ZxingSacnnerActivity extends BaseActivity {
 	public void doBusiness(Context mContext) {
 		Intent intent = new Intent(this,CaptureActivity.class);
 		startActivity(intent);
+		finish();
 	}
 
 	@Override
