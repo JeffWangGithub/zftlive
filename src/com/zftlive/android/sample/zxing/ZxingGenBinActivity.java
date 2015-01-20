@@ -27,7 +27,7 @@ public class ZxingGenBinActivity extends BaseActivity {
 	private EditText et_qr_text;
 	private Button btn_make_qr;
 	private Button btn_make_bar;
-	private ImageView qr_image;
+	private ImageView qr_image,validate_image;
 	private Bitmap qrImage,validateCodeImage;
 
 	@Override
@@ -41,6 +41,7 @@ public class ZxingGenBinActivity extends BaseActivity {
 		btn_make_qr = (Button)findViewById(R.id.btn_make_qr);
 		btn_make_bar = (Button)findViewById(R.id.btn_make_bar);
 		qr_image = (ImageView)findViewById(R.id.qr_image);
+		validate_image = (ImageView)findViewById(R.id.validate_image);
 	}
 
 	@Override
@@ -93,7 +94,7 @@ public class ZxingGenBinActivity extends BaseActivity {
 					
 					//生成图片
 				    validateCodeImage = ToolPicture.makeValidateCode(200, 30);
-					qr_image.setImageBitmap(validateCodeImage);
+				    validate_image.setImageBitmap(validateCodeImage);
 					
 					ToolAlert.showShort("验证码值："+ToolPicture.gainValidateCodeValue());
 					
