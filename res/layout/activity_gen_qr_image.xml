@@ -2,47 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical" >
 
     <EditText
         android:id="@+id/et_qr_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:ems="10" 
         android:layout_gravity="left"
-        >
+        android:ems="10" >
     </EditText>
-	
+
     <Button
         android:id="@+id/btn_make_qr"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="生成二维码" 
         android:layout_gravity="right"
-        />
-     <Button
-        android:id="@+id/btn_make_bar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="获取随机验证码" 
-        android:layout_gravity="right"
-        />
-	    
+        android:text="生成二维码" />
+
     <ImageView
         android:id="@+id/qr_image"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:minHeight="200dp"
-        android:minWidth="200dp"
-    />
-    
-        <ImageView
+        android:layout_gravity="center"
+        android:minHeight="50dp" />
+
+    <Button
+        android:id="@+id/btn_make_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="获取随机验证码" />
+
+    <ImageView
         android:id="@+id/validate_image"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:minHeight="200dp"
-        android:minWidth="200dp"
-    />
+        android:layout_gravity="center"
+        android:minHeight="50dp" />
 
 </LinearLayout>
