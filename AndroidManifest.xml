@@ -95,7 +95,7 @@
         <uses-library android:name="android.test.runner" />
 
         <!-- 配置程序启动界面 -->
-        <activity android:name=".Launcher" android:label="Launcher">
+        <activity android:name=".Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -191,6 +191,19 @@
         <activity
             android:name=".sample.camera.CameraPictureActivity"
             android:label="CameraPictureActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>     
+        
+        <!-- 数据库操作示例 -->
+        <activity
+            android:name=".sample.db.DBDemoActivity"
+            android:label="DBDemoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
