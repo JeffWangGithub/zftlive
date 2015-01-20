@@ -211,7 +211,34 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.zftlive.android.SAMPLE_CODE" />
             </intent-filter>
+        </activity>
+        
+        <!-- 生成二维码/验证码示例 -->
+        <activity
+            android:name=".sample.zxing.ZxingGenBinActivity"
+            android:label="ZxingGenBinActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>         
+        
+        <!-- 扫描二维码/条形码示例 -->
+        <activity
+            android:name=".sample.zxing.ZxingSacnnerActivity"
+            android:label="ZxingSacnnerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
+            </intent-filter>
         </activity>        
+        
     </application>
 
 </manifest>
