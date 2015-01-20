@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aliceblue"
+    android:orientation="vertical" >
+
+    <!-- 添加输入框 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:hint="用户名" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:hint="电子邮箱" />
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="添加" />
+    </LinearLayout>
+
+    <!-- 带分页导航条的信息列表 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/app_list_corner_round"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/lv_userlist"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="@color/black"
+            android:dividerHeight="1.5dp"
+            android:focusable="true"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true"
+            android:scrollbars="none" >
+        </ListView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_first_page"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="首页" />
+
+            <Button
+                android:id="@+id/btn_per_page"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="上一页" />
+
+            <Button
+                android:id="@+id/btn_next_page"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="下一页" />
+
+            <Button
+                android:id="@+id/btn_end_page"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="末页" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 修改编辑框 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/et_u_username"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:hint="用户名" />
+
+        <EditText
+            android:id="@+id/et_u_email"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:hint="电子邮箱" />
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="保存" />
+    </LinearLayout>
+
+</LinearLayout>
