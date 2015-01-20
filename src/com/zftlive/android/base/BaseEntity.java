@@ -20,24 +20,56 @@ public abstract class BaseEntity implements Serializable {
 	 * 主键ID
 	 */
 	@DatabaseField(id=true)
-	private String id;
+	protected String id;
 	
 	/**
 	 * 备注
 	 */
 	@DatabaseField
-	private String remark;
+	protected String remark;
 	
 	/**
 	 * 版本号
 	 */
 	@DatabaseField(defaultValue="1")
-	private Integer version;
+	protected Integer version;
 	
 	/**
 	 * 是否有效
 	 */
 	@DatabaseField(defaultValue="true")
-	private Boolean valid;
+	protected Boolean valid;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
+	}
+
+	public Boolean getValid() {
+		return valid;
+	}
+
+	public void setValid(Boolean valid) {
+		this.valid = valid;
+	}
 
 }
