@@ -113,7 +113,7 @@ public class CameraPictureActivity extends BaseActivity {
 			try {
 				camera = Camera.open();
 				camera.setPreviewDisplay(holder);
-			} catch (IOException e) {
+			} catch (Exception e) {
 				camera.release();
 				camera = null;
 				ToolAlert.dialog(getContext(), "错误提示", "启动相机失败",
