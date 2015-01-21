@@ -94,8 +94,11 @@ public class Operation {
 		DTO parms = getParameters();
 		if(null != parms){
 			return parms.get(key);
+		}else{
+			parms = new DTO();
+			parms.put(key, mContext.getIntent().getExtras().get(key));
 		}
-		return null;
+		return parms;
 	}
 	
 	/**
