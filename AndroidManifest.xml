@@ -237,7 +237,58 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.zftlive.android.SAMPLE_CODE" />
             </intent-filter>
+        </activity>
+        
+        <!-- 调用webservice接口SOAP协议查看天气示例 -->
+        <activity
+            android:name=".sample.soap.ProviceActivity"
+            android:label="调用WebService示例"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".sample.soap.CityActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
+        </activity>
+        <activity
+            android:name=".sample.soap.WeatherActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
         </activity>        
+        
+        <!-- 发送手机短信验证码示例 -->
+        <activity
+            android:name=".sample.sms.PhoneValidateCodeActivity"
+            android:label="PhoneValidateCodeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        
+        <!-- 各种进度条示例 -->
+        <activity
+            android:name=".sample.progressbar.ProgressBarActivity"
+            android:label="ProgressBarActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>         
         
     </application>
 
