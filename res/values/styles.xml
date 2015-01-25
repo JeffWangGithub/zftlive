@@ -23,4 +23,11 @@
         <item name="android:windowExitAnimation">@anim/pop_menu_out_anim</item>
     </style>
     
+    <style name="theme_fullScreen">  
+        <!-- 设置无标题 -->  
+        <item name="android:windowNoTitle">true</item>  
+        <!-- 设置全屏 -->  
+        <item name="android:windowFullscreen">true</item>  
+    </style>  
+    
 </resources>

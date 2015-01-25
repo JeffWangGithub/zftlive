@@ -27,7 +27,7 @@ public class Launcher extends BaseActivity {
 		
 		//添加动画效果
 		AlphaAnimation animation = new AlphaAnimation(0.3f, 1.0f);
-		animation.setDuration(1000);
+		animation.setDuration(2000);
 		animation.setAnimationListener(new AnimationListener() {
 
 			@Override
