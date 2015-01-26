@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- view_pull_refresh(start) -->
+    <dimen name="indicator_right_padding">10dp</dimen>
+    <dimen name="indicator_corner_radius">12dp</dimen>
+    <dimen name="indicator_internal_padding">4dp</dimen>
+    <dimen name="header_footer_left_right_padding">24dp</dimen>
+    <dimen name="header_footer_top_bottom_padding">12dp</dimen>
+	<!-- view_pull_refresh(end) -->
+	
+	<!-- table_fix_headers(start) -->
+    <dimen name="shadow_size">4dip</dimen>
+    <dimen name="table_width">135dp</dimen>
+    <dimen name="table_height">40dp</dimen>
+    <!-- table_fix_headers(end) -->
+</resources>
