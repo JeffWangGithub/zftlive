@@ -290,7 +290,20 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.zftlive.android.SAMPLE_CODE" />
             </intent-filter>
-        </activity>         
+        </activity>
+        
+        <!-- 自动获取表单数据示例 -->
+        <activity
+            android:name=".sample.data.AutoGainFormActivity"
+            android:label="自动获取表单数据示例"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>        
         
     </application>
 
