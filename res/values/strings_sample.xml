@@ -1,4 +1,24 @@
 <resources>
+    
+    <!-- Android样例锦集label(开始) -->
+    <string name="MainActivity">Android样例锦集</string>
+    <string name="GuideActivity">引导界面</string>
+    <string name="FeedbackActivity">意见反馈</string>
+    <string name="PopDialogMenuActivity">底部泡泡菜单</string>
+    <string name="LineChartActivity">Achartengine带泡泡提示的曲线图</string>
+    <string name="ImageListviewActivity">异步加载图片+防错位DEMO</string>
+    <string name="CameraPictureActivity">直接启动摄像头拍照</string>
+    <string name="DBDemoActivity">Sqlite增删改查操作</string>
+    <string name="ZxingGenBinActivity">生成二维码/验证码</string>
+    <string name="ZxingSacnnerActivity">竖屏扫描二维码/条形码</string>
+    <string name="SOAP">调用WebService示例</string>
+    <string name="PhoneValidateCodeActivity">发送手机短信验证码</string>
+    <string name="ProgressBarActivity">垂直+水平+圆形进度条</string>
+    <string name="AutoGainFormActivity">自动获取表单数据示例</string>
+    <!-- Android样例锦集label(结束) -->
+    
+    
+    
     <string name="sms_timer">获取手机验证码（%1$s）</string>
     
     <!-- 自动获取表单示例（开始） -->
