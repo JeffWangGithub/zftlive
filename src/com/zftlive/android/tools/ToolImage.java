@@ -112,7 +112,7 @@ public abstract class ToolImage {
          *  FadeInBitmapDisplayer（int durationMillis）设置图片渐显的时间
 　　　　   *　SimpleBitmapDisplayer()正常显示一张图片
 		 **/
-		.displayer(new FadeInBitmapDisplayer(100))// 渐显--设置图片渐显的时间
+		.displayer(new FadeInBitmapDisplayer(1*1000))// 渐显--设置图片渐显的时间
 		.build();
 		return options;
 	}
