@@ -11,6 +11,9 @@ import android.content.Context;
 
 import com.android.http.RequestManager;
 import com.android.volley.toolbox.ImageLoader;
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.zftlive.android.view.imageindicator.NetworkImageCache;
 
 /**
@@ -48,6 +51,8 @@ public class MApplication extends Application {
 		//初始化请求队列
 		RequestManager.getInstance().init(MApplication.this);
 		mImageLoader = new ImageLoader(RequestManager.getInstance().getRequestQueue(), imageCacheMap);
+		//初始化图片加载器
+		initImageLoader(getApplicationContext());
 	}
 
 	/**
@@ -58,6 +63,22 @@ public class MApplication extends Application {
 		return mImageLoader;
 	}
 
+	public static void initImageLoader(Context context) {
+		// This configuration tuning is custom. You can tune every option, you may tune some of them,
+		// or you can create default configuration by
+		//  ImageLoaderConfiguration.createDefault(this);
+		// method.
+		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
+				.threadPriority(Thread.NORM_PRIORITY - 2)
+				.denyCacheImageMultipleSizesInMemory()
+				.discCacheFileNameGenerator(new Md5FileNameGenerator())
+				.discCacheSize(50 * 1024 * 1024) // 50 Mb
+				.tasksProcessingOrder(QueueProcessingType.LIFO)
+				.build();
+		// Initialize ImageLoader with configuration.
+		com.nostra13.universalimageloader.core.ImageLoader.getInstance().init(config);
+	}
+	
 	/*******************************************************Application数据操作API（开始）********************************************************/
 	
 	/**
