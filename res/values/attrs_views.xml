@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- view_pull_refresh(start) -->
     <declare-styleable name="PullToRefresh">
-
         <!-- A drawable to use as the background of the Refreshable View -->
         <attr name="ptrRefreshableViewBackground" format="reference|color" />
-
         <!-- A drawable to use as the background of the Header and Footer Loading Views -->
         <attr name="ptrHeaderBackground" format="reference|color" />
-
         <!-- Text Color of the Header and Footer Loading Views -->
         <attr name="ptrHeaderTextColor" format="reference|color" />
-
         <!-- Text Color of the Header and Footer Loading Views Sub Header -->
         <attr name="ptrHeaderSubTextColor" format="reference|color" />
-
         <!-- Mode of Pull-to-Refresh that should be used -->
         <attr name="ptrMode">
             <flag name="disabled" value="0x0" />
@@ -22,7 +18,6 @@
             <flag name="pullFromEnd" value="0x2" />
             <flag name="both" value="0x3" />
             <flag name="manualOnly" value="0x4" />
-
             <!-- These last two are depreacted -->
             <flag name="pullDownFromTop" value="0x1" />
             <flag name="pullUpFromBottom" value="0x2" />
@@ -30,34 +25,25 @@
 
         <!-- Whether the Indicator overlay(s) should be used -->
         <attr name="ptrShowIndicator" format="reference|boolean" />
-
         <!-- Drawable to use as Loading Indicator. Changes both Header and Footer. -->
         <attr name="ptrDrawable" format="reference" />
-
         <!-- Drawable to use as Loading Indicator in the Header View. Overrides value set in ptrDrawable. -->
         <attr name="ptrDrawableStart" format="reference" />
-
         <!-- Drawable to use as Loading Indicator in the Footer View. Overrides value set in ptrDrawable. -->
         <attr name="ptrDrawableEnd" format="reference" />
-
         <!-- Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh. -->
         <attr name="ptrOverScroll" format="reference|boolean" />
-
         <!-- Base text color, typeface, size, and style for Header and Footer Loading Views -->
         <attr name="ptrHeaderTextAppearance" format="reference" />
-
         <!-- Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header -->
         <attr name="ptrSubHeaderTextAppearance" format="reference" />
-
         <!-- Style of Animation should be used displayed when pulling. -->
         <attr name="ptrAnimationStyle">
             <flag name="rotate" value="0x0" />
             <flag name="flip" value="0x1" />
         </attr>
-
         <!-- Whether the user can scroll while the View is Refreshing -->
         <attr name="ptrScrollingWhileRefreshingEnabled" format="reference|boolean" />
-
         <!--
         	Whether PullToRefreshListView has it's extras enabled. This allows the user to be 
         	able to scroll while refreshing, and behaves better. It acheives this by adding
@@ -70,11 +56,60 @@
         	takes effect when using the 'Rotate' Animation Style.
         -->
         <attr name="ptrRotateDrawableWhilePulling" format="reference|boolean" />
-
         <!-- BELOW HERE ARE DEPRECEATED. DO NOT USE. -->
         <attr name="ptrAdapterViewBackground" format="reference|color" />
         <attr name="ptrDrawableTop" format="reference" />
         <attr name="ptrDrawableBottom" format="reference" />
     </declare-styleable>
+    <!-- view_pull_refresh(end) -->
+    
+    
+    <!-- 圆角进度条（开始） -->
+    <declare-styleable name="RoundProgressBar">  
+        <attr name="roundColor" format="color"/>
+        <attr name="roundProgressColor" format="color"/>
+        <attr name="roundWidth" format="dimension"></attr>
+        <attr name="textColor" format="color" />  
+        <attr name="textSize" format="dimension" /> 
+        <attr name="max" format="integer"></attr> 
+        <attr name="textIsDisplayable" format="boolean"></attr>
+        <attr name="style">
+            <enum name="STROKE" value="0"></enum>
+            <enum name="FILL" value="1"></enum>
+        </attr>
+    </declare-styleable> 
+    <!-- 圆角进度条（结束） -->
+
+    
+    <!-- 圆形图片（开始） -->
+    <declare-styleable name="RoundedImageView">  
+        <attr name="border_thickness" format="dimension"></attr>
+        <attr name="border_outside_color" format="color"/>
+        <attr name="border_inside_color" format="color"/>
+    </declare-styleable> 
+    <!-- 圆形图片（结束） -->
+    
+    
+    <!-- 等待操作对话框（开始）  -->
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+    <style name="CustomProgressDialog" parent="@style/CustomDialog">
+        <item name="android:windowBackground">@drawable/view_progress_dialog_bg</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <!-- 等待操作对话框（结束）  -->
+
+    
+    <!-- TextView（RadioButton/CheckBox）共通value（开始） -->
+    <declare-styleable name="TextView" >
+        <attr name="value" format="string"/>
+    </declare-styleable> 
+    <!-- TextView（RadioButton/CheckBox）共通value（结束） -->    
+    
 
 </resources>

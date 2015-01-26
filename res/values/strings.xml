@@ -1,6 +1,7 @@
 <resources>
 
     <string name="app_name">攻城师</string>
-    
     <string name="MainActivity">Android样例锦集</string>
+    <!-- 共通字符串 -->
+    <string name="loading_waiting">加載中，请稍后...</string>
 </resources>

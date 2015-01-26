@@ -10,11 +10,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.zftlive.android.R;
 import com.zftlive.android.base.BaseActivity;
 import com.zftlive.android.base.BaseAdapter;
+import com.zftlive.android.tools.ToolImage;
 
 /**
  * 异步加载图片示例DEMO，防止图片错位
@@ -70,7 +69,6 @@ public class ImageListviewActivity extends BaseActivity {
 			"多途网络科技 15K 招聘前端开发工程师",
 			"携程无线前端团队招聘 直接内部推荐（携程上海总部）"
 	};
-	private DisplayImageOptions mDisplayImageOptions; 
 	private com.nostra13.universalimageloader.core.ImageLoader universalimageloader;
 	
 	@Override
@@ -84,14 +82,8 @@ public class ImageListviewActivity extends BaseActivity {
 		mMyListViewAdapter = new MyListViewAdapter();
 		mListView = (ListView)findViewById(R.id.lv_list);
 		
-		mDisplayImageOptions = new DisplayImageOptions.Builder()  
-        .showStubImage(R.drawable.ic_launcher).cacheInMemory()  
-        .cacheOnDisc().build(); 
-		
-		ImageLoaderConfiguration imageLoaderConfiguration = new ImageLoaderConfiguration.Builder(this).enableLogging().build();
-		universalimageloader = com.nostra13.universalimageloader.core.ImageLoader.getInstance();
-		universalimageloader.init(imageLoaderConfiguration);
-		
+		//图片异步加载器
+		universalimageloader = ToolImage.initImageLoader(getApplicationContext());
 	}
 
 	@Override
@@ -142,8 +134,7 @@ public class ImageListviewActivity extends BaseActivity {
 //			mImageLoader.get((String)rowData.get("imageUrl"), mImageListener);
 			
 			//异步加载图片防止错位方法二：com.nostra13.universalimageloader.core.ImageLoader
-			universalimageloader.displayImage((String)rowData.get("imageUrl"), mViewHolder.iv_icon, mDisplayImageOptions);
-			
+			universalimageloader.displayImage((String)rowData.get("imageUrl"), mViewHolder.iv_icon, ToolImage.getFadeOptions(R.drawable.default_icon,R.drawable.ic_launcher,R.drawable.ic_launcher));
 			mViewHolder.tv_title.setText((String)rowData.get("title"));
 			return convertView;
 		}

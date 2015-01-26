@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- view_pull_refresh(start) -->
+    <item name="gridview" type="id"/>
+    <item name="webview" type="id"/>
+    <item name="scrollview" type="id"/>
+    <item name="viewpager" type="id"/>
+    <!-- view_pull_refresh(end) -->
+
+
+    <!-- table_fix_headers(start) -->
+    <item name="tag_type_view" type="id"/>
+    <item name="tag_row" type="id"/>
+    <item name="tag_column" type="id"/>
+    <!-- table_fix_headers(end) -->
+
+
+    <!-- zxing(start) -->
+    <item name="auto_focus" type="id"/>
+    <item name="decode" type="id"/>
+    <item name="decode_failed" type="id"/>
+    <item name="decode_succeeded" type="id"/>
+    <item name="launch_product_query" type="id"/>
+    <item name="quit" type="id"/>
+    <item name="restart_preview" type="id"/>
+    <item name="return_scan_result" type="id"/>
+    <item name="search_book_contents_failed" type="id"/>
+    <item name="search_book_contents_succeeded" type="id"/>
+    <!-- zxing(end) -->
+
+</resources>
