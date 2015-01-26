@@ -1,3 +1,23 @@
 <resources>
     <string name="sms_timer">获取手机验证码（%1$s）</string>
+    
+    <!-- 自动获取表单示例（开始） -->
+	<string name="tv_account">帐号：</string>
+	<string name="tv_password">密码：</string>
+	<string name="btn_show">显示</string>
+	<string name="tv_school">毕业院校：</string>
+	<string name="rg_sex">性别：</string>
+	<string name="sex_male">男</string>
+	<string name="sex_female">女</string>
+	<string name="tv_hoby">兴趣爱好：</string>
+	<string name="hoby_sleep">睡觉</string>
+	<string name="hoby_boll">打球</string>
+	<string name="hoby_read">看小说</string>
+	<string name="remark">备注</string>
+	<string name="hint_remark">请输入备注内容</string>
+	<string name="auto_gain_form_data">自动获取表单示例</string> 
+	<string name="et_password_hint">请输入密码</string>
+	<string name="et_account_hint">请输入您的手机号\邮箱\用户名</string>
+	<string name="btn_auto_gaindata">提交表单</string>
+    <!-- 自动获取表单示例（结束） -->
 </resources>
