@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.List;
 
 import android.app.Activity;
-import android.content.Context;
 
 /**
  * Adapter基类
