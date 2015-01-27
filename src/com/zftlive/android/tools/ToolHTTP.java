@@ -184,7 +184,6 @@ public abstract class ToolHTTP {
 				Object value = entity.getValue();
 				if (value instanceof File) {
 					try {
-						//params.put((String) key, (File) value);用不了 AsyncHttp算错字节少了
 						params.put((String) key, new FileInputStream((File) value),((File) value).getName());
 					} catch (FileNotFoundException e) {
 						throw new RuntimeException("文件不存在！", e);
