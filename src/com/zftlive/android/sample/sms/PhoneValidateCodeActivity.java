@@ -24,10 +24,8 @@ import com.zftlive.android.tools.ToolSMS;
  */
 public class PhoneValidateCodeActivity extends BaseActivity {
 
-	private EditText et_phone;
-	private EditText et_phone_code;
-	private Button btn_gain_smscode;
-	private Button btn_validate;
+	private EditText et_phone,et_phone_code;
+	private Button btn_gain_smscode,btn_validate;
 	private Timer mTimer = null;
 	private TimerTask mTimerTask = null;
 	private static int delay = 1 * 1000;  //1s
