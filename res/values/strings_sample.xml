@@ -15,6 +15,7 @@
     <string name="PhoneValidateCodeActivity">发送手机短信验证码</string>
     <string name="ProgressBarActivity">垂直+水平+圆形进度条</string>
     <string name="AutoGainFormActivity">自动获取表单数据示例</string>
+    <string name="AnimationInActivity">Activity切换过场动画示例</string>
     <!-- Android样例锦集label(结束) -->
     
     
