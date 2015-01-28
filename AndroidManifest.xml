@@ -302,8 +302,26 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.zftlive.android.SAMPLE_CODE" />
             </intent-filter>
-        </activity>        
+        </activity> 
         
+        <!-- Activity过场动画示例 -->
+        <activity
+            android:name=".sample.animation.AnimationInActivity"
+            android:label="@string/AnimationInActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.zftlive.android.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".sample.animation.AnimationOutActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
+        </activity>         
     </application>
 
 </manifest>
