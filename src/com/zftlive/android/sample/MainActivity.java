@@ -53,6 +53,8 @@ public class MainActivity extends BaseActivity {
 				 Map<String, Object> map = (Map<String, Object>)parent.getItemAtPosition(position);
 			     Intent intent = (Intent) map.get("intent");
 			     startActivity(intent);
+				 //右往左推出效果
+				 overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);
 			}
 		});
 		
