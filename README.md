@@ -1,7 +1,8 @@
 <h4>
 这是一个集成目前Android主流优秀第三方组件、优秀好用的自定义控件、实用工具类封装、以及一些APP共通模块（比如：版本更新、意见反馈、引导界面等等），帮助程序员快速开发自己APP.<br>
 </h4>
-
+<hr>
+<b>最新源代码托管在oschina &nbsp; <a href="http://git.oschina.net/zftlive/zftlive" target="_blank">点击这里</a>获取最新源代码以及Sample预览效果apk</b>
 <hr>
 <h3>已集成第三方开源组件：</h3>
 <ul>
